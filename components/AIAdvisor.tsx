@@ -35,7 +35,9 @@ export const AIAdvisor: React.FC = () => {
             try {
                 let apiKey = '';
                 // Safe access to API key that works in both Node-like and Browser environments
-                if (typeof process !== 'undefined' && process.env) {
+                if (import.meta.env.VITE_API_KEY) {
+                    apiKey = import.meta.env.VITE_API_KEY;
+                } else if (typeof process !== 'undefined' && process.env) {
                     apiKey = process.env.API_KEY || '';
                 }
 
@@ -69,7 +71,7 @@ export const AIAdvisor: React.FC = () => {
                 `;
 
                 chatRef.current = ai.chats.create({
-                    model: 'gemini-2.5-flash',
+                    model: 'gemini-1.5-flash',
                     config: {
                         systemInstruction: systemInstruction,
                         temperature: 0.7,
@@ -182,7 +184,7 @@ export const AIAdvisor: React.FC = () => {
                             <h3 className="font-bold text-white">Fin Advisor</h3>
                             <p className="text-xs text-indigo-300 flex items-center gap-1">
                                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                                Gemini 2.5 Flash
+                                Gemini 1.5 Flash
                             </p>
                         </div>
                     </div>
