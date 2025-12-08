@@ -1,0 +1,5 @@
+{
+  "name": "Financial Health Dashboard",
+  "description": "A comprehensive financial planning system based on the 3G (Gain, Spend, Save) and 50-15-35 allocation rules to help you manage your finances, track investments, control debts, and achieve your goals.",
+  "requestFramePermissions": []
+}
